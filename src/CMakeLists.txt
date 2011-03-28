@@ -111,6 +111,20 @@ ENDIF()
 SET_PROPERTY( GLOBAL PROPERTY USE_FOLDERS ${CMAKE_USE_FOLDERS} )
 
 #---------------------------------------------------------------------
+# Get version information.
+
+# Get the version number of elastix
+FILE( STRINGS ${elastix_SOURCE_DIR}/Core/Install/elxBaseComponent.h
+  ELASTIX_VERSION REGEX "\(#define\ __ELASTIX_VERSION\)" )
+STRING( SUBSTRING ${ELASTIX_VERSION} 26 3 ELASTIX_VERSION )
+
+# Split version in major minor. Assuming no patch number, just x.y
+STRING( REGEX MATCH "[0-9]+" ELASTIX_VERSION_MAJOR "${ELASTIX_VERSION}" )
+STRING( REGEX REPLACE "([0-9]+)\\." "" ELASTIX_VERSION_MINOR "${ELASTIX_VERSION}" )
+
+SET(ELASTIX_LIBRARY_PROPERTIES VERSION "${ELASTIX_VERSION}" SOVERSION "${ELASTIX_VERSION}")
+
+#---------------------------------------------------------------------
 # Include directories
 
 SET( elxCommon_INCLUDE_DIRECTORIES
@@ -242,19 +256,7 @@ FOREACH( ELX_EXAMPLEINPUTFILE ${ELX_EXAMPLEINPUTFILES} )
     COPYONLY )
 ENDFOREACH()
 
-#---------------------------------------------------------------------
-# Get version information.
 
-# Get the version number of elastix
-FILE( STRINGS ${elastix_SOURCE_DIR}/Core/Install/elxBaseComponent.h
-  ELASTIX_VERSION REGEX "\(#define\ __ELASTIX_VERSION\)" )
-STRING( SUBSTRING ${ELASTIX_VERSION} 26 3 ELASTIX_VERSION )
-
-# Split version in major minor. Assuming no patch number, just x.y
-STRING( REGEX MATCH "[0-9]+" ELASTIX_VERSION_MAJOR "${ELASTIX_VERSION}" )
-STRING( REGEX REPLACE "([0-9]+)\\." "" ELASTIX_VERSION_MINOR "${ELASTIX_VERSION}" )
-
-SET(ELASTIX_LIBRARY_PROPERTIES VERSION "${ELASTIX_VERSION}" SOVERSION "${ELASTIX_VERSION}")
 
 #---------------------------------------------------------------------
 # Configure the doxygen-configuration
