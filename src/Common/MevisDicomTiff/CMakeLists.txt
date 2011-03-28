@@ -17,6 +17,8 @@ ADD_LIBRARY( mevisdcmtiff
  itkMevisDicomTiffImageIOFactory.cxx
  itkUseMevisDicomTiff.h
 )
+SET_TARGET_PROPERTIES(mevisdcmtiff PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 TARGET_LINK_LIBRARIES( mevisdcmtiff ITKIO ITKCommon )
 
 

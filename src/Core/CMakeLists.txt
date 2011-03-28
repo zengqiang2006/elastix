@@ -96,6 +96,8 @@ ADD_LIBRARY( elxCore
   ${ProgressCommandFiles}
 )
 
+SET_TARGET_PROPERTIES(elxCore PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 #---------------------------------------------------------------------
 # Link against other libraries.
 

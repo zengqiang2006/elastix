@@ -35,6 +35,8 @@ ADD_SUBDIRECTORY( ann_1.1 )
 # Create the KNN library
 ADD_LIBRARY( KNNlib ${KNN_Files} )
 
+SET_TARGET_PROPERTIES(KNNlib PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 # Link it against the necessary libraries.
 TARGET_LINK_LIBRARIES( KNNlib ANNlib ITKBasicFilters ITKCommon ITKStatistics )
 

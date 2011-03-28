@@ -21,5 +21,7 @@ SET( xouthfiles
 # a lib defining the global variable xout.
 ADD_LIBRARY( xoutlib xoutmain.cxx ${xouthxxfiles} ${xouthfiles} )
 
+SET_TARGET_PROPERTIES(xoutlib PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 # Group in IDE's like Visual Studio
 SET_PROPERTY( TARGET xoutlib PROPERTY FOLDER "libraries" )

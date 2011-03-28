@@ -168,6 +168,8 @@ ADD_LIBRARY( elxCommon
   ${ImageSamplersFiles}
 )
 
+SET_TARGET_PROPERTIES(elxCommon PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 #---------------------------------------------------------------------
 # Link against other libraries.
 

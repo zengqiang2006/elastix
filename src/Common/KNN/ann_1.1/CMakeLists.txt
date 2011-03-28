@@ -27,6 +27,8 @@ SET( ANN_SRCS
 # Create the ANNlib library
 ADD_LIBRARY( ANNlib SHARED ${ANN_SRCS} )
 
+SET_TARGET_PROPERTIES(ANNlib PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
+
 # Necessary, because in windows dll_export is needed for creating the
 # dll, but dll_import for using it in a program.
 SET_TARGET_PROPERTIES( ANNlib PROPERTIES DEFINE_SYMBOL DLL_EXPORTS )
