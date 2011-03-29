@@ -98,6 +98,8 @@ ADD_LIBRARY( elxCore
 
 SET_TARGET_PROPERTIES(elxCore PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
 
+INSTALL( TARGETS elxCore RUNTIME DESTINATION bin LIBRARY DESTINATION lib${LIB_SUFFIX} ARCHIVE DESTINATION lib${LIB_SUFFIX})
+
 #---------------------------------------------------------------------
 # Link against other libraries.
 
@@ -188,6 +190,7 @@ ELSE()
     RUNTIME DESTINATION bin )
     #COMPONENT core )
 ENDIF()
+
 
 #---------------------------------------------------------------------
 # The Core/Install directory contains a CMakeLists file for

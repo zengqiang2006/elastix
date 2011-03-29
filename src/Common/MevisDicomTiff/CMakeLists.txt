@@ -21,7 +21,7 @@ SET_TARGET_PROPERTIES(mevisdcmtiff PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
 
 TARGET_LINK_LIBRARIES( mevisdcmtiff ITKIO ITKCommon )
 
-
+INSTALL( TARGETS mevisdcmtiff RUNTIME DESTINATION bin LIBRARY DESTINATION lib${LIB_SUFFIX} ARCHIVE DESTINATION lib${LIB_SUFFIX})
 
 # add mevisdcmtiff to the list of target_link_libraries in your cmakelists.txt file.
 

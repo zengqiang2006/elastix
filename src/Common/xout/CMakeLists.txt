@@ -23,5 +23,7 @@ ADD_LIBRARY( xoutlib xoutmain.cxx ${xouthxxfiles} ${xouthfiles} )
 
 SET_TARGET_PROPERTIES(xoutlib PROPERTIES ${ELASTIX_LIBRARY_PROPERTIES})
 
+INSTALL( TARGETS xoutlib RUNTIME DESTINATION bin LIBRARY DESTINATION lib${LIB_SUFFIX} ARCHIVE DESTINATION lib${LIB_SUFFIX})
+
 # Group in IDE's like Visual Studio
 SET_PROPERTY( TARGET xoutlib PROPERTY FOLDER "libraries" )
